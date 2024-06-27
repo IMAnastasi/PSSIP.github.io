@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/script.js"></script>
+    <button onclick="showCurrentYear()">Показать год</button>
+    <script>
+        function showCurrentYear() {
+          // Получаем текущий год с помощью объекта Date
+          const currentYear = new Date().getFullYear();
+    
+          // Выводим текущий год в диалоговое окно
+          window.alert(`Текущий год: ${currentYear}`);
+        }
+      </script>
+</head>
+<body>
+  <br>
+  <script>
+    // Указываем строку для повторения
+    let name = "Апанович Анастасия";
+    
+    // Цикл for для повторения строки 7 раз
+    for (let i = 0; i < 7; i++) {
+        document.write(name + "<br>");
+    }
+    </script>
+ <br>
+<script>
+  // Формируем массив из 15 целых элементов
+  const arr = Array.from({ length: 15 }, () => Math.floor(Math.random() * 100));
+
+  // Находим максимальный и минимальный элементы
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+
+  // Меняем местами максимальный и минимальный элементы
+  const newArr = arr.map(num => (num === max ? min : num === min ? max : num));
+
+  // Выводим исходный и изменившийся массив в документ
+  document.write(`<p>Исходный массив: [${arr}]</p>`);
+  document.write(`<p>Измененный массив: [${newArr}]</p>`);
+</script>
+
+<br>
+
+<h1>Расчет значения f</h1>
+  <form onsubmit="handleFormSubmit(event)">
+    <label for="t-input">Значение t:</label>
+    <input type="number" id="t-input" required>
+    <button type="submit">Рассчитать</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault(); // Предотвращаем стандартное поведение формы
+      const tInput = document.getElementById("t-input");
+      const t = parseFloat(tInput.value);
+      const result = calculateF(t);
+      if (result !== null) {
+        document.getElementById("result").textContent = `Значение f = ${result.toFixed(2)}`;
+      }
+    }
+  </script>
+  <br>
+
+  <script src="js/script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+      .error {
+        border: 2px solid red;
+      }
+    </style>
+</head>
+<body>
+    <h1>Работа с Document и DOM</h1>
+  <p>Статус загрузки: <span id="status"></span></p>
+  <p>Первый узел</p>
+  <p>Второй узел</p>
+  <p id="message"></p>
+    <p> Апанович Анастасия Викторовна</p>
+    <img src="img/Blossom.jpg" alt="Blossom" width="400px">
+    <br>
+    <button onclick="applyStyles()">Изменить стиль</button>
+    <script src="script/script.js"></script>
+    <br>
+    <br>
+    <script>
+      // Функция, которая получает и отображает информацию о полном URL-адресе
+      function showURLInfo() {
+        // Получаем полный URL-адрес
+        const fullURL = window.location.href;
+  
+        // Открываем новое окно и отображаем информацию о URL-адресе
+        const newWindow = window.open('', 'URL Information', 'width=400,height=200');
+        newWindow.document.write(`<h2>Полный URL-адрес:</h2><p>${fullURL}</p>`);
+      }
+  
+      // Вызываем функцию showURLInfo() через 5 секунд
+      setTimeout(showURLInfo, 5000);
+    </script>
+</body>
+</html>

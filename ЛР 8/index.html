@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользовательскя форма</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<form class="form-container">
+    <div class="item item_0">
+        <h2>Сделать заказ:</h2>
+       </div>
+       <div class="item item_10">
+        <h3>*-обязательное поле</h3>
+       </div>
+   <div class="item item_1">
+    <label for="is-individual">Физ лицо:</label>
+    <select id="is-individual" name="is-individual" required>
+      <option value="">Выберите вариант</option>
+      <option value="yes">Да</option>
+      <option value="no">Нет</option>
+    </select>
+   </div>
+   <div class="item item_2">
+    <label for="name">ФИО:</label>
+      <input type="text" id="name" name="name" value="Введите ваше имя" required><br>
+   </div>
+   <div class="item item_3">
+    <label for="phone">Номер телефона:</label>
+      <input type="tel" id="phone" name="phone" value="+375-29-123-45-67" pattern="^\+375\s?(\d{2})[\s-]?(\d{3})[\s-]?(\d{2})[\s-]?(\d{2})$" required>
+   </div>
+   <div class="item item_4">
+    <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" value="example@example.com" required>
+   </div>
+   <div class="item item_5">
+    <label for="payment">Метод оплаты:</label>
+      <select id="payment" name="payment" required>
+        <option value="">Выберите метод оплаты</option>
+        <option value="cash">Наличными при получении</option>
+        <option value="card">БК при получении</option>
+        <option value="online">Онлайн оплата</option>
+      </select>
+   </div>
+   <div class="item item_6">
+    <label for="shipping">Способ доставки:</label>
+      <select id="shipping" name="shipping" required>
+        <option value="">Выберите способ доставки</option>
+        <option value="pickup">Самовывоз</option>
+        <option value="courier">Курьер</option>
+        <option value="mail">Почта</option>
+      </select>
+   </div>
+   <div class="item item_7">
+    <label for="zip">ZIP-файл:</label>
+      <input type="file" id="zip" name="zip" accept=".zip" required>
+   </div>
+   <div class="item item_8">
+    <label for="address">Адрес:</label>
+    <input type="text" id="address" name="address" value="ул. Ленина, д. 1, кв. 2" required>
+   </div>
+   <div class="item item_9">
+    <label for="comment">Комментарий:</label>
+    <textarea id="comment" name="comment" maxlength="500" required>Пожалуйста, доставьте как можно скорее.</textarea><br>
+   </div>
+  <div class="form-group right-column">
+    <button type="submit" class="submit-button">Отправить заказ</button>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('myForm');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+
+    // Проверка на заполненность полей
+    const isIndividual = document.getElementById('is-individual').value;
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const payment = document.getElementById('payment').value;
+    const shipping = document.getElementById('shipping').value;
+    const zipFile = document.getElementById('zip').files[0];
+    const address = document.getElementById('address').value.trim();
+    const comment = document.getElementById('comment').value.trim();
+
+    let isValid = true;
+
+    // Проверка формата данных
+    if (isIndividual === '') {
+      alert('Укажите, являетесь ли вы физическим лицом.');
+      isValid = false;
+    }
+
+    if (name.length < 3) {
+      alert('Введите корректное ФИО.');
+      isValid = false;
+    }
+
+    if (!/^\+375\s?(\d{2})[\s-]?(\d{3})[\s-]?(\d{2})[\s-]?(\d{2})$/.test(phone)) {
+      alert('Введите корректный номер телефона в формате +375 XX XXX XX XX.');
+      isValid = false;
+    }
+
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      alert('Введите корректный email.');
+      isValid = false;
+    }
+
+    if (payment === '') {
+      alert('Выберите метод оплаты.');
+    isValid = false;
+  }
+
+  if (shipping === '') {
+    alert('Выберите способ доставки.');
+    isValid = false;
+  }
+
+  if (!zipFile) {
+    alert('Выберите ZIP-файл.');
+    isValid = false;
+  }
+
+  if (address.length < 5) {
+    alert('Введите корректный адрес.');
+    isValid = false;
+  }
+
+  if (comment.length > 500) {
+    alert('Комментарий не должен превышать 500 символов.');
+    isValid = false;
+  }
+
+  // Если все проверки пройдены, отправляем форму
+  if (isValid) {
+    form.submit();
+  }
+});
+</script>
+</body>
+</html>

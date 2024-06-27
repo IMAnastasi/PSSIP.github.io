@@ -1,0 +1,150 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1240px;
+    height: auto;
+    margin: 0 auto;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    background: url("assets/images/ryan_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1240px;
+    width: 100%;
+    height: 60px;
+    font-size: 24px;
+    background-color: rgba(78, 52, 131, 0.54);
+    color: #ffffff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 1240px;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1240px;
+    width: 100%;
+    height: 60px;
+    font-size: 24px;
+    background-color: rgba(52, 70, 131, 0.54);
+    color: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.h-40 {
+    min-height: 40px;
+}
+
+.h-125 {
+    height: auto
+}
+
+.h-195 {
+    height: auto;
+}
+
+.h-400 {
+    height: auto;
+}
+
+.w-400 {
+    max-width: 400px;
+    width: 100%;
+}
+
+.w-830 {
+    max-width: 830px;
+    width: 100%;
+}
+
+.w-940 {
+    width: 940px;
+}
+
+.color__green {
+    background-color: rgba(0, 140, 0, 0.54);
+}
+
+.color__purple {
+    background-color: rgba(78, 52, 131, 0.54);
+}
+
+.group-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.line {
+    max-width: 1240px;
+    background-color: rgba(52, 131, 98, 0.54);
+    width: 100%;
+}
+
+.image-block {
+    max-width: 400px;
+    width: 100%;
+    max-height: 400px;
+}
+
+.image-block img {
+    width: 100%;
+    height: auto;
+}
+
+.group-line__block--container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.group-line__block--item {
+    /*background-color: #348335;*/
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 600;
+    width: 100%;
+    max-width: 830px;
+
+}
+
+.group-column__block--container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.group-column__block--item {
+    width: 140px;
+    height: 400px;
+}
+
+.group-column__block--item img {
+    width: 100%;
+    height: 100%;
+}

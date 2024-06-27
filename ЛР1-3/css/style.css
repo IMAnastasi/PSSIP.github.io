@@ -1,0 +1,38 @@
+*{
+    background-color: aquamarine;
+    font-size: 20px;
+    font-family: Roboto Mono;
+}
+h1{
+    color:blueviolet;
+    font-size: 50px;
+}
+.test{
+    text-decoration: overline;
+    color:red;
+}
+#but{
+    border: 3px double brown
+}
+a[href="https://www.instagram.com/_iam_nasty_"]{
+    font-size: 25px;
+    text-decoration-line: line-through;
+    color:burlywood;
+}
+a:hover{
+    font-size: 40px;
+    color:red;
+}
+section::first-line{
+    text-decoration: solid;
+    color:#808000;
+}
+h2,h3{
+    color: #0000FF;
+}
+article ol{
+    background-color:#800080;
+}
+.photo{
+    width:200px;
+}
