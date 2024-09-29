@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР15-16</title>
+</head>
+<body>
+<h2>ООП</h2>
+<div id="output"></div>
+<script>
+    // Пример инкапсуляции
+    class BankAccount {
+        #balance; // Приватное поле
+
+        constructor(initialBalance) {
+            this.#balance = initialBalance;
+        }
+
+        deposit(amount) {
+            if (amount > 0) {
+                this.#balance += amount;
+                this.display(`Депозит: ${amount}. Текущий баланс: ${this.#balance}`);
+            } else {
+                this.display("Сумма депозита должна быть положительной.");
+            }
+        }
+
+        withdraw(amount) {
+            if (amount > 0 && amount <= this.#balance) {
+                this.#balance -= amount;
+                this.display(`Снятие: ${amount}. Текущий баланс: ${this.#balance}`);
+            } else {
+                this.display("Недостаточно средств или неверная сумма.");
+            }
+        }
+
+        getBalance() {
+            return this.#balance; // Метод для получения баланса
+        }
+
+        display(message) {
+            document.getElementById('output').innerHTML += `<p>${message}</p>`;
+        }
+    }
+
+    // Пример наследования
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+
+        speak() {
+            return `${this.name} издает звук.`;
+        }
+    }
+
+    class Dog extends Animal {
+        speak() {
+            return `${this.name} говорит: Гав!`;
+        }
+    }
+
+    class Cat extends Animal {
+        speak() {
+            return `${this.name} говорит: Мяу!`;
+        }
+    }
+
+    // Пример полиморфизма
+    class Shape {
+        area() {
+            throw new Error("Метод area() должен быть переопределен в подклассе.");
+        }
+    }
+
+    class Rectangle extends Shape {
+        constructor(width, height) {
+            super();
+            this.width = width;
+            this.height = height;
+        }
+
+        area() {
+            return this.width * this.height; // Переопределение метода
+        }
+    }
+
+    class Circle extends Shape {
+        constructor(radius) {
+            super();
+            this.radius = radius;
+        }
+
+        area() {
+            return Math.PI * this.radius * this.radius; // Переопределение метода
+        }
+    }
+
+    // Использование инкапсуляции
+    const account = new BankAccount(100);
+    account.deposit(50);
+    account.withdraw(30);
+    account.display(`Баланс: ${account.getBalance()}`); // Доступ к балансу через метод
+
+    // Использование наследования
+    const dog = new Dog("Шарик");
+    const cat = new Cat("Мурка");
+
+    account.display(dog.speak()); // Шарик говорит: Гав!
+    account.display(cat.speak()); // Мурка говорит: Мяу!
+
+    // Использование полиморфизма
+    const shapes = [new Rectangle(10, 5), new Circle(7)];
+
+    shapes.forEach(shape => {
+        account.display(`Площадь: ${shape.area()}`); // Вызов метода area() для разных объектов
+    });
+</script>
+<button><a href="zmeika.html">Игра "Угадай число"</a></button>
+</body>
+</html>
