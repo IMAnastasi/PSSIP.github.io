@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры интерфейсных событий</title>
+    <link rel="stylesheet" href="css/slyle.css">
+</head>
+<body>
+
+    <!-- 1. События мыши -->
+    <div class="section">
+        <h2>1. События мыши</h2>
+        <div class="box" id="mouse-box">Наведи сюда</div>
+        <p id="mouse-output"></p>
+    </div>
+
+    <!-- 2. События клавиатуры -->
+    <div class="section">
+        <h2>2. События клавиатуры</h2>
+        <input type="text" id="keyboard-input" placeholder="Нажми любую клавишу">
+        <p id="keyboard-output"></p>
+    </div>
+
+    <!-- 3. Drag & Drop события -->
+    <div class="section">
+        <h2>3. Drag & Drop события</h2>
+        <div class="box draggable" id="draggable-box" draggable="true">Перетащи меня</div>
+        <div class="box droppable" id="drop-box">Сюда</div>
+        <p id="drop-output"></p>
+    </div>
+
+    <!-- 4. События указателя -->
+    <div class="section">
+        <h2>4. События указателя</h2>
+        <div class="box" id="pointer-box">Укажи на меня</div>
+        <p id="pointer-output"></p>
+    </div>
+
+    <!-- 5. События полосы прокрутки -->
+    <div class="section">
+        <h2>5. События полосы прокрутки</h2>
+        <div class="scroll-box" id="scroll-box">
+            Прокручивай этот текст, чтобы увидеть событие прокрутки. Этот текст длинный, чтобы было больше контента для прокрутки. Прокручивай вниз, и текст будет обновляться с каждой новой прокруткой...
+        </div>
+        <p id="scroll-output"></p>
+    </div>
+
+    <!-- 6. События сенсорных экранов -->
+    <div class="section">
+        <h2>6. События сенсорных экранов</h2>
+        <div class="box" id="touch-box">Коснись меня</div>
+        <p id="touch-output"></p>
+    </div>
+
+    <!-- 7. События, связанные с таймером -->
+    <div class="section">
+        <h2>7. События, связанные с таймером</h2>
+        <button id="start-timer-btn">Запустить таймер</button>
+        <p id="timer-output"></p>
+    </div>
+
+    <script>
+        // 1. События мыши
+        const mouseBox = document.getElementById('mouse-box');
+        const mouseOutput = document.getElementById('mouse-output');
+
+        mouseBox.addEventListener('mouseover', () => {
+            mouseOutput.textContent = 'Мышь наведена!';
+        });
+
+        mouseBox.addEventListener('mouseout', () => {
+            mouseOutput.textContent = 'Мышь убрана!';
+        });
+
+        // 2. События клавиатуры
+        const keyboardInput = document.getElementById('keyboard-input');
+        const keyboardOutput = document.getElementById('keyboard-output');
+
+        keyboardInput.addEventListener('keydown', (event) => {
+            keyboardOutput.textContent = `Нажата клавиша: ${event.key}`;
+        });
+
+        // 3. Drag & Drop события
+        const draggableBox = document.getElementById('draggable-box');
+        const dropBox = document.getElementById('drop-box');
+        const dropOutput = document.getElementById('drop-output');
+
+        draggableBox.addEventListener('dragstart', (event) => {
+            event.dataTransfer.setData('text', event.target.id);
+        });
+
+        dropBox.addEventListener('dragover', (event) => {
+            event.preventDefault();
+        });
+
+        dropBox.addEventListener('drop', (event) => {
+            const id = event.dataTransfer.getData('text');
+            const draggedElement = document.getElementById(id);
+            dropBox.appendChild(draggedElement);
+            dropOutput.textContent = 'Элемент был перемещён!';
+        });
+
+        // 4. События указателя
+        const pointerBox = document.getElementById('pointer-box');
+        const pointerOutput = document.getElementById('pointer-output');
+
+        pointerBox.addEventListener('pointerdown', () => {
+            pointerOutput.textContent = 'Указатель нажат!';
+        });
+
+        pointerBox.addEventListener('pointerup', () => {
+            pointerOutput.textContent = 'Указатель отпущен!';
+        });
+
+        // 5. События полосы прокрутки
+        const scrollBox = document.getElementById('scroll-box');
+        const scrollOutput = document.getElementById('scroll-output');
+
+        scrollBox.addEventListener('scroll', () => {
+            scrollOutput.textContent = `Позиция прокрутки: ${scrollBox.scrollTop}`;
+        });
+
+        // 6. События сенсорных экранов
+        const touchBox = document.getElementById('touch-box');
+        const touchOutput = document.getElementById('touch-output');
+
+        touchBox.addEventListener('touchstart', () => {
+            touchOutput.textContent = 'Косание началось!';
+        });
+
+        touchBox.addEventListener('touchend', () => {
+            touchOutput.textContent = 'Косание завершено!';
+        });
+
+        // 7. События, связанные с таймером
+        const timerBtn = document.getElementById('start-timer-btn');
+        const timerOutput = document.getElementById('timer-output');
+        let timer;
+
+        timerBtn.addEventListener('click', () => {
+            let counter = 0;
+            timerOutput.textContent = 'Таймер запущен...';
+            timer = setInterval(() => {
+                counter++;
+                timerOutput.textContent = `Прошло секунд: ${counter}`;
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>
