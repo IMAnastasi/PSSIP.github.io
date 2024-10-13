@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма пользователя</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Пользовательская форма</h1>
+    <form id="userForm">
+        <label for="fullName">ФИО:</label>
+        <input type="text" id="fullName" required>
+        <span id="fullNameError" class="error"></span>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <span id="emailError" class="error"></span>
+        
+        <label for="dob">Дата рождения:</label>
+        <input type="date" id="dob" required>
+        <span id="dobError" class="error"></span>
+        
+        <label for="birthPlace">Место рождения:</label>
+        <input type="text" id="birthPlace" required>
+        <span id="birthPlaceError" class="error"></span>
+        
+        <label for="hobbies">Увлечения:</label>
+        <input type="text" id="hobbies" required>
+        <span id="hobbiesError" class="error"></span>
+        
+        <button type="submit">Сохранить данные</button>
+        <button id="getDataBtn">Получить данные из Cookie</button>
+         <button id="clearCookiesBtn">Очистить Cookie</button>
+    </form>
+    
+    <div id="output" style="display:none;"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

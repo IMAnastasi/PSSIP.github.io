@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Роза",
+        "price": 100,
+        "image": "https://example.com/rose.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Тюльпан",
+        "price": 80,
+        "image": "https://example.com/tulip.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Лилия",
+        "price": 120,
+        "image": "https://example.com/lily.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Гербера",
+        "price": 90,
+        "image": "https://example.com/gerbera.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Хризантема",
+        "price": 70,
+        "image": "https://example.com/chrysanthemum.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Орхидея",
+        "price": 150,
+        "image": "https://example.com/orchid.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Фиалка",
+        "price": 60,
+        "image": "https://example.com/violet.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Сирень",
+        "price": 110,
+        "image": "https://example.com/lilac.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Пион",
+        "price": 130,
+        "image": "https://example.com/peony.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Лаванда",
+        "price": 75,
+        "image": "https://example.com/lavender.jpg"
+    }
+]
